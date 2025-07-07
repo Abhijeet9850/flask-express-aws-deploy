@@ -1,0 +1,22 @@
+
+{
+  "family": "flask-express-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "512",
+  "memory": "1024",
+  "containerDefinitions": [
+    {
+      "name": "flask-backend",
+      "image": "<ACCOUNT_ID>.dkr.ecr.<REGION>.amazonaws.com/flask-backend:latest",
+      "essential": true,
+      "portMappings": [{ "containerPort": 5000 }]
+    },
+    {
+      "name": "express-frontend",
+      "image": "<ACCOUNT_ID>.dkr.ecr.<REGION>.amazonaws.com/express-frontend:latest",
+      "essential": true,
+      "portMappings": [{ "containerPort": 3000 }]
+    }
+  ]
+}
